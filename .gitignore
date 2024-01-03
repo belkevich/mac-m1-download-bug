@@ -1,0 +1,42 @@
+# OS X noise
+.DS_Store
+
+# User settings
+xcuserdata/
+
+# XcodeGen
+# .pbxproj
+# .xcodeproj
+# .xcworkspace
+
+# TMP data
+.build/
+Build/*
+DerivedData
+.idea/
+.vscode/
+tmp
+screenshots
+simulator_build/
+
+# Obj-C/Swift specific
+*.hmap
+
+# App packaging
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# CocoaPods
+Pods
+
+# Fastlane
+**/fastlane/report.xml
+**/fastlane/Preview.html
+**/fastlane/screenshots
+**/fastlane/test_output
+**/fastlane/swiftlint.html
+**/fastlane/swiftlint.txt
+
+# Swiftlint
+codequality_report.json
