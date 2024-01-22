@@ -11,6 +11,7 @@ import AVFoundation
 protocol DownloadServiceDelegate: AnyObject {
     func willDownload(to url: URL)
     func didProgress(_ percent: Double)
+    func didLoad(key: Data, for url: URL)
     func didFinish()
     func didFail(_ error: Error)
 }
@@ -27,6 +28,11 @@ final class DownloadService: NSObject {
         delegateQueue: .main
     )
 
+    private lazy var downloadDrm = DownloadDrm(callback: {
+        [weak self] in
+        self?.drmDelegate?.didLoad(key: $1, for: $0)
+    })
+
     func loadNoDrm(_ url: URL) {
         let asset = AVURLAsset(url: url)
         let task = session.aggregateAssetDownloadTask(
@@ -35,11 +41,23 @@ final class DownloadService: NSObject {
             assetTitle: "NO DRM",
             assetArtworkData: nil
         )
+        task?.taskDescription = C.noDrm
         task?.resume()
     }
 
     func load(drm: Drm, url: URL) {
-
+        downloadDrm.drm = drm
+        let asset = AVURLAsset(url: url)
+        asset.resourceLoader.setDelegate(downloadDrm, queue: .main)
+        asset.resourceLoader.preloadsEligibleContentKeys = true
+        let task = session.aggregateAssetDownloadTask(
+            with: asset,
+            mediaSelections: [asset.preferredMediaSelection],
+            assetTitle: "DRM",
+            assetArtworkData: nil
+        )
+        task?.taskDescription = C.drm
+        task?.resume()
     }
 }
 
@@ -80,7 +98,12 @@ extension DownloadService: AVAssetDownloadDelegate {
     }
 
     private func delegate(for task: URLSessionTask) -> DownloadServiceDelegate? {
-        noDrmDelegate
+        task.taskDescription == C.drm ? drmDelegate : noDrmDelegate
+    }
+    
+    private struct C {
+        static let drm = "drm"
+        static let noDrm = "NO-drm"
     }
 }
 

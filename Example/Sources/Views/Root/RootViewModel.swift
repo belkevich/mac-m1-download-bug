@@ -39,7 +39,16 @@ struct RootViewModel: Navigatable {
     }
 
     func onOfflineDrm() {
-
+        let view = DownloadView(
+            viewModel: .init(
+                stream: .drm(
+                    (Urls.drmKey, Urls.drmCert),
+                    url: Urls.drmStream
+                )
+            )
+        )
+        let controller = UIHostingController(rootView: view)
+        navigation?.pushViewController(controller, animated: true)
     }
     
     private struct Urls {

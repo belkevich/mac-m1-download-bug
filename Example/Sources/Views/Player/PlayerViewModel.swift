@@ -11,10 +11,24 @@ import AVFoundation
 final class PlayerViewModel {
     private let url: URL
     private let drm: Drm?
+    private let keys: [URL: Data]?
 
-    init(url: URL, drm: Drm? = nil) {
+    init(url: URL) {
+        self.url = url
+        drm = nil
+        keys = nil
+    }
+
+    init(url: URL, drm: Drm?) {
         self.url = url
         self.drm = drm
+        keys = nil
+    }
+
+    init(url: URL, keys: [URL: Data]) {
+        self.url = url
+        self.keys = keys
+        drm = nil
     }
 
     lazy var player = AVPlayer(playerItem: item)
@@ -31,8 +45,13 @@ final class PlayerViewModel {
         return asset
     }
 
-    private lazy var resourceLoader: OnlineDrm? = {
-        guard let drm else { return nil }
-        return OnlineDrm(drm: drm)
+    private lazy var resourceLoader: AVAssetResourceLoaderDelegate? = {
+        if let drm {
+            return OnlineDrm(drm: drm)
+        } else if let keys {
+            return OfflineDrm(keys: keys)
+        } else {
+            return nil
+        }
     }()
 }
