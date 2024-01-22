@@ -8,9 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		20C1CBE166227ECA1EE08FF4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0981D62665C4F951905E93 /* SceneDelegate.swift */; };
-		4972FA452B55B95E00D58529 /* OnlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4972FA442B55B95E00D58529 /* OnlineView.swift */; };
+		4972FA452B55B95E00D58529 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4972FA442B55B95E00D58529 /* PlayerView.swift */; };
+		4972FA472B5696BA00D58529 /* DownloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4972FA462B5696BA00D58529 /* DownloadView.swift */; };
+		4972FA492B5696C300D58529 /* DownloadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4972FA482B5696C300D58529 /* DownloadViewModel.swift */; };
+		4972FA4C2B56AD1C00D58529 /* DownloadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4972FA4B2B56AD1C00D58529 /* DownloadService.swift */; };
+		4972FA4E2B5E99C800D58529 /* Navigatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4972FA4D2B5E99C800D58529 /* Navigatable.swift */; };
+		4972FA502B5E9D4B00D58529 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4972FA4F2B5E9D4B00D58529 /* Style.swift */; };
+		4972FA522B5EA42600D58529 /* FileManager+Extenstions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4972FA512B5EA42600D58529 /* FileManager+Extenstions.swift */; };
 		49C647A92B4820FE0007A1F9 /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C647A82B4820FE0007A1F9 /* RootViewModel.swift */; };
-		49C647AD2B486FDD0007A1F9 /* OnlineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C647AC2B486FDD0007A1F9 /* OnlineViewModel.swift */; };
+		49C647AD2B486FDD0007A1F9 /* PlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C647AC2B486FDD0007A1F9 /* PlayerViewModel.swift */; };
 		49C647AF2B4872F80007A1F9 /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C647AE2B4872F80007A1F9 /* Types.swift */; };
 		49C647B12B4873660007A1F9 /* OnlineDrm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C647B02B4873660007A1F9 /* OnlineDrm.swift */; };
 		49C647B32B48758E0007A1F9 /* URLLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C647B22B48758E0007A1F9 /* URLLoader.swift */; };
@@ -33,9 +39,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4972FA442B55B95E00D58529 /* OnlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlineView.swift; sourceTree = "<group>"; };
+		4972FA442B55B95E00D58529 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
+		4972FA462B5696BA00D58529 /* DownloadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadView.swift; sourceTree = "<group>"; };
+		4972FA482B5696C300D58529 /* DownloadViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadViewModel.swift; sourceTree = "<group>"; };
+		4972FA4B2B56AD1C00D58529 /* DownloadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadService.swift; sourceTree = "<group>"; };
+		4972FA4D2B5E99C800D58529 /* Navigatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigatable.swift; sourceTree = "<group>"; };
+		4972FA4F2B5E9D4B00D58529 /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
+		4972FA512B5EA42600D58529 /* FileManager+Extenstions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Extenstions.swift"; sourceTree = "<group>"; };
 		49C647A82B4820FE0007A1F9 /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
-		49C647AC2B486FDD0007A1F9 /* OnlineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlineViewModel.swift; sourceTree = "<group>"; };
+		49C647AC2B486FDD0007A1F9 /* PlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewModel.swift; sourceTree = "<group>"; };
 		49C647AE2B4872F80007A1F9 /* Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
 		49C647B02B4873660007A1F9 /* OnlineDrm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlineDrm.swift; sourceTree = "<group>"; };
 		49C647B22B48758E0007A1F9 /* URLLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLLoader.swift; sourceTree = "<group>"; };
@@ -89,6 +101,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		4972FA4A2B56ACFC00D58529 /* DownloadService */ = {
+			isa = PBXGroup;
+			children = (
+				4972FA4B2B56AD1C00D58529 /* DownloadService.swift */,
+			);
+			path = DownloadService;
+			sourceTree = "<group>";
+		};
 		4F160DA0426D18FD4DFD3610 /* Example */ = {
 			isa = PBXGroup;
 			children = (
@@ -124,14 +144,25 @@
 			isa = PBXGroup;
 			children = (
 				ADE0BC5694C4A48A4D9045A3 /* Root */,
-				ADE0BE3F495D609814425B0C /* Online */,
+				ADE0BE3F495D609814425B0C /* Player */,
+				ADE0BB457BCA796630068217 /* Download */,
+				ADE0B19D1523E8F290BAC776 /* Style */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		ADE0B19D1523E8F290BAC776 /* Style */ = {
+			isa = PBXGroup;
+			children = (
+				4972FA4F2B5E9D4B00D58529 /* Style.swift */,
+			);
+			path = Style;
 			sourceTree = "<group>";
 		};
 		ADE0B381ECB333772D61412B /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				4972FA4A2B56ACFC00D58529 /* DownloadService */,
 				ADE0BFA3EBD774FE84E1922F /* Drm */,
 				ADE0B4CDEA4EDB935D805830 /* Loader */,
 			);
@@ -151,8 +182,19 @@
 			children = (
 				49C647AE2B4872F80007A1F9 /* Types.swift */,
 				49C647B42B4878420007A1F9 /* Hex.swift */,
+				4972FA4D2B5E99C800D58529 /* Navigatable.swift */,
+				4972FA512B5EA42600D58529 /* FileManager+Extenstions.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		ADE0BB457BCA796630068217 /* Download */ = {
+			isa = PBXGroup;
+			children = (
+				4972FA462B5696BA00D58529 /* DownloadView.swift */,
+				4972FA482B5696C300D58529 /* DownloadViewModel.swift */,
+			);
+			path = Download;
 			sourceTree = "<group>";
 		};
 		ADE0BC5694C4A48A4D9045A3 /* Root */ = {
@@ -164,13 +206,13 @@
 			path = Root;
 			sourceTree = "<group>";
 		};
-		ADE0BE3F495D609814425B0C /* Online */ = {
+		ADE0BE3F495D609814425B0C /* Player */ = {
 			isa = PBXGroup;
 			children = (
-				49C647AC2B486FDD0007A1F9 /* OnlineViewModel.swift */,
-				4972FA442B55B95E00D58529 /* OnlineView.swift */,
+				49C647AC2B486FDD0007A1F9 /* PlayerViewModel.swift */,
+				4972FA442B55B95E00D58529 /* PlayerView.swift */,
 			);
-			path = Online;
+			path = Player;
 			sourceTree = "<group>";
 		};
 		ADE0BFA3EBD774FE84E1922F /* Drm */ = {
@@ -292,13 +334,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4972FA4E2B5E99C800D58529 /* Navigatable.swift in Sources */,
 				A9E2F6DE10385083A2080D57 /* AppDelegate.swift in Sources */,
-				49C647AD2B486FDD0007A1F9 /* OnlineViewModel.swift in Sources */,
+				4972FA522B5EA42600D58529 /* FileManager+Extenstions.swift in Sources */,
+				49C647AD2B486FDD0007A1F9 /* PlayerViewModel.swift in Sources */,
+				4972FA492B5696C300D58529 /* DownloadViewModel.swift in Sources */,
+				4972FA502B5E9D4B00D58529 /* Style.swift in Sources */,
 				20C1CBE166227ECA1EE08FF4 /* SceneDelegate.swift in Sources */,
-				4972FA452B55B95E00D58529 /* OnlineView.swift in Sources */,
+				4972FA452B55B95E00D58529 /* PlayerView.swift in Sources */,
 				49C647AF2B4872F80007A1F9 /* Types.swift in Sources */,
 				49C647B32B48758E0007A1F9 /* URLLoader.swift in Sources */,
+				4972FA472B5696BA00D58529 /* DownloadView.swift in Sources */,
 				49C647A92B4820FE0007A1F9 /* RootViewModel.swift in Sources */,
+				4972FA4C2B56AD1C00D58529 /* DownloadService.swift in Sources */,
 				49C647B52B4878420007A1F9 /* Hex.swift in Sources */,
 				ADE0BECE92423161A13645B2 /* RootView.swift in Sources */,
 				49C647B12B4873660007A1F9 /* OnlineDrm.swift in Sources */,

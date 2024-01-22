@@ -1,5 +1,5 @@
 //
-//  OnlineView.swift
+//  PlayerView.swift
 //  Example
 //
 //  Created by Megogo on 15.01.2024.
@@ -9,8 +9,8 @@ import Foundation
 import SwiftUI
 import AVKit
 
-struct OnlineView: UIViewControllerRepresentable {
-    let viewModel: OnlineViewModel
+struct PlayerView: UIViewControllerRepresentable {
+    let viewModel: PlayerViewModel
     let title: String
 
     func makeUIViewController(context: Context) -> AVPlayerViewController {
@@ -20,10 +20,10 @@ struct OnlineView: UIViewControllerRepresentable {
         controller.player = viewModel.player
         controller.player?.play()
         return controller
-     }
+    }
 
-     func updateUIViewController(_ uiViewController: AVPlayerViewController, 
-                                 context: Context) {
+    func updateUIViewController(_ uiViewController: AVPlayerViewController,
+                                context: Context) {
         // does nothing
-     }
+    }
 }

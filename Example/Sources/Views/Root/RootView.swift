@@ -14,12 +14,12 @@ struct RootView: View {
     var body: some View {
         VStack(spacing: 20) {
             Button(
-                "Online NO DRM",
+                "Player NO DRM",
                 action: { viewModel.onOnlineNonDrm() }
             )
             .buttonStyle(Style())
             Button(
-                "Online DRM",
+                "Player DRM",
                 action: { viewModel.onOnlineDrm() }
             )
             .buttonStyle(Style())
@@ -33,18 +33,6 @@ struct RootView: View {
                 action: { viewModel.onOfflineDrm() }
             )
             .buttonStyle(Style())
-        }
-    }
-    
-    struct Style: ButtonStyle {
-        func makeBody(configuration: Configuration) -> some View {
-            configuration.label
-                .font(.system(size: 38, weight: .bold))
-                .foregroundColor(.accentColor)
-                .frame(width: 300)
-                .padding()
-                .background(Color.launch)
-                .cornerRadius(15)
         }
     }
 }

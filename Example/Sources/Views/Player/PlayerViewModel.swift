@@ -1,5 +1,5 @@
 //
-//  OnlineViewModel.swift
+//  PlayerViewModel.swift
 //  Example
 //
 //  Created by Megogo on 05.01.2024.
@@ -8,7 +8,7 @@
 import Foundation
 import AVFoundation
 
-final class OnlineViewModel {
+final class PlayerViewModel {
     private let url: URL
     private let drm: Drm?
 
