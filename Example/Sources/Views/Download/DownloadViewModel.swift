@@ -28,8 +28,10 @@ import SwiftUI
         let savedState = State(rawValue: defaults?.integer(forKey: Keys.state) ?? 0) ?? .empty
         state = savedState == .progress ? .failure : savedState
         path = defaults?.string(forKey: Keys.path)
-        if let keysData = defaults?.data(forKey: Keys.key) {
-            persistentKeys = try? JSONDecoder().decode([URL : Data]?.self, from: keysData)
+        if let keysData = defaults?.data(forKey: Keys.key),
+           let keys = try? JSONDecoder().decode([URL : Data]?.self, from: keysData) {
+            persistentKeys = keys
+            key = .loaded
         }
         switch stream {
             case .noDrm: download.noDrmDelegate = self
@@ -80,6 +82,7 @@ import SwiftUI
                 download.loadNoDrm(url)
             case .drm(let drm, let url):
                 download.load(drm: drm, url: url)
+                key = .waiting
         }
         state = .progress
     }
@@ -151,6 +154,7 @@ extension DownloadViewModel: DownloadServiceDelegate {
         } else {
             persistentKeys = [url: key]
         }
+        self.key = .loaded
     }
 
     func didFinish() {

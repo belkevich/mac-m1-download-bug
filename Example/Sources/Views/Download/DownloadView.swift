@@ -29,9 +29,12 @@ struct DownloadView: View {
     }
     
     private var progress: some View {
-        Text(String(Int(viewModel.progress * 100)) + "%")
-            .font(.system(size: 60, weight: .bold))
-            .foregroundColor(.accentColor)
+        VStack(spacing: 50) {
+            Text(String(Int(viewModel.progress * 100)) + "%")
+                .font(.system(size: 60, weight: .bold))
+                .foregroundColor(.accentColor)
+            key
+        }
     }
     
     private var ready: some View {
@@ -46,6 +49,7 @@ struct DownloadView: View {
                 action: { viewModel.onRemove() }
             )
             .buttonStyle(Style())
+            key
         }
     }
     
@@ -59,6 +63,20 @@ struct DownloadView: View {
                 action: { viewModel.onRemove() }
             )
             .buttonStyle(Style())
+        }
+    }
+
+    private var key: some View {
+        Text(keyText)
+            .font(.system(size: 35, weight: .bold))
+            .foregroundColor(.launch)
+    }
+
+    private var keyText: String {
+        switch viewModel.key {
+            case .empty: return "No DRM keys"
+            case .loaded: return "DRM keys loaded"
+            case .waiting: return "Waiting for DRM keys"
         }
     }
 }
